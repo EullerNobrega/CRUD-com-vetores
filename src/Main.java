@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -9,15 +10,15 @@ public class Main {
 
         do{
             System.out.println("Menu\n");
-            System.out.println("1 - Inserir | 2 - Consultar Posicao | 3 - Remover | 4 - Listar | 0 -Sair\n");
+            System.out.println("1 - Inserir valores randomicamente | 2 - Consultar Posicao | 3 - Remover | 4 - Listar | 0 -Sair\n");
             System.out.println("Escolha o que vc deseja: ");
             op = scan.nextInt();
 
             switch (op){
                 case 1:
-                    System.out.println("Informe o numero a ser inserido: ");
-                    num = scan.nextInt();
-                    cadastro.inserir(num);
+                    for(int i = 0; i <= cadastro.pos; i++) {
+                        cadastro.inserir(numRandomico());
+                    }
                     break;
                 case 2:
                     System.out.println("Informe o numero a ser consultado: ");
@@ -36,6 +37,11 @@ public class Main {
             }
         }while(op != 0);
 
+    }
+
+    private static int numRandomico(){
+        Random r = new Random();
+        return r.nextInt(100);
     }
 
 
